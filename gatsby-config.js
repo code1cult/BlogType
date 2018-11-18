@@ -62,12 +62,5 @@ module.exports = {
       },
     },
 
-    {
-      resolve: 'gatsby-source-prismic',
-      options: {
-        repositoryName: 'blog-template',
-        accessToken: 'MC5XOXk0R1JBQUFDVUFZVEdK.MO-_vTLvv70SMe-_ve-_vWDvv73vv707cHfvv73vv73vv73vv71aQe-_vTs377-977-9CO-_ve-_ve-_ve-_vWxx',
-      },
-    }
   ],
 }

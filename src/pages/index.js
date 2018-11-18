@@ -31,9 +31,6 @@ let renderPosts = (array) => {
             <h2 className="post-title">
              {value.node.title}
             </h2>
-            {/* <h3 className="post-subtitle">
-              {description}
-            </h3> */}
           </Link>
         </div>
         <hr />
@@ -50,7 +47,7 @@ const IndexPage = ({ data }) => {
   return (
     <div>
       <Navigation />
-      <Header title={'Trending News'} description={'Latest Breaking News '} image={'https://images.pexels.com/photos/261949/pexels-photo-261949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'} />
+      <Header title={'Blog Type'}  image={'https://images.pexels.com/photos/261949/pexels-photo-261949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'} />
 
       <div className="container">
         <div className="row">
@@ -80,8 +77,11 @@ query {
   allStrapiPost{
    edges {
      node {
-       id
-       title
+      id
+      title
+      media
+      media_type
+      content
 
      }
    }
