@@ -5,28 +5,35 @@ import Navigation from '../components/navigation'
 import Header from '../components/header'
 import Footer from '../components/footer'
 
+
+let convertToSlug = (Text)=> {
+    return Text
+        .toLowerCase()
+        .replace(/ /g,'-')
+        .replace(/[^\w-]+/g,'')
+        ;
+}
+
 let renderPosts = (array) => {
 
 
 
   return array.map((value, i) => {
-    // let title = value.node.data.title.text
-    // let url = value.node.data.id;
-    // let description = value.node.data.description.text.split(' ', 50).join(' ') + '...';
-
+   let title = convertToSlug(value.node.title)
+   
 
     debugger
 
     return (
       <div>
         <div className="post-preview">
-          <Link to={'/' }>
+          <Link to={'/'+title}>
             <h2 className="post-title">
              {value.node.title}
             </h2>
-            <h3 className="post-subtitle">
-              {/* {description} */}
-            </h3>
+            {/* <h3 className="post-subtitle">
+              {description}
+            </h3> */}
           </Link>
         </div>
         <hr />

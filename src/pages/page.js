@@ -8,19 +8,21 @@ import Footer from '../components/footer'
 
 const IndexPage = ({ data }) => {
 
+ 
+
+
+  let blog = data.allStrapiPost.edges[0].node
+  let htmlDescription = blog.description
   debugger
-
-
-  let blog = data.allStrapiPost.edges[0].node.data
   return (
     <div>
       <Navigation />
-      <Header title={blog && blog.title } description={'How to Lose Weight'} image={blog && blog.image} />
+      <Header title={blog && blog.title } description={''} image={'https://ichef.bbci.co.uk/news/660/cpsprodpb/EFCB/production/_104378316_a9b18b4c-5092-4089-b16a-a6228bac4c85.jpg'} />
       <article>
         <div className="container">
           <div className="row">
             <div className="col-lg-8 col-md-10 mx-auto">
-              <div dangerouslySetInnerHTML={{ __html: blog && blog.description }} />
+              <div dangerouslySetInnerHTML={{ __html:htmlDescription}} />
             </div>
           </div>
         </div>
@@ -36,19 +38,19 @@ const IndexPage = ({ data }) => {
 export default IndexPage
 
 export const query = graphql`
-query {
-  allStrapiPost{
-   edges {
-     node {
-       id
-       title
-
-     }
-   }
- }
-}
-
-
+query($productId: String){
+  allStrapiPost (filter:{
+    id:{eq: $productId}
+  }){
+    edges {
+      node  {
+        id
+        title
+        description
+        }
+      }
+    }
+  }
 
 `
 
