@@ -1,0 +1,1 @@
+{"errors":[{"message":"Variable \"$productId\" is never used in operation \"IndexPage\".","locations":[{"line":2,"column":3}]}],"pageContext":{"productId":0}}

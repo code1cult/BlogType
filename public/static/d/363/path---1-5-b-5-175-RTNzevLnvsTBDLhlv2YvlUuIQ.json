@@ -1,0 +1,1 @@
+{"errors":[{"message":"Variable \"$productId\" is not defined by operation \"homeIlovetrafficTemplateSrcPagesPageJs280954578\".","locations":[{"line":4,"column":47},{"line":1,"column":1}]},{"message":"Variable \"$channel_id\" is never used in operation \"homeIlovetrafficTemplateSrcPagesPageJs280954578\".","locations":[{"line":2,"column":3}]}],"pageContext":{"productId":1}}

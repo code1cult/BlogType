@@ -1,0 +1,1 @@
+{"errors":[{"message":"Variable \"$productId\" is never used in operation \"ProductDetails\".","locations":[{"line":2,"column":3}]}],"pageContext":{}}
