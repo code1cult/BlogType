@@ -20,7 +20,7 @@ const IndexPage = ({ data }) => {
         <div className="container">
           <div className="row">
             <div className="col-lg-8 col-md-10 mx-auto">
-              <div dangerouslySetInnerHTML={{ __html: blog.description.html }} />
+              <div dangerouslySetInnerHTML={{ __html: blog && blog.description }} />
             </div>
           </div>
         </div>
