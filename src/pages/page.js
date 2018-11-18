@@ -15,7 +15,7 @@ const IndexPage = ({ data }) => {
   return (
     <div>
       <Navigation />
-      <Header title={blog.title.text} description={'How to Lose Weight'} image={blog.image.url} />
+      <Header title={blog && blog.title } description={'How to Lose Weight'} image={blog && blog.image} />
       <article>
         <div className="container">
           <div className="row">
