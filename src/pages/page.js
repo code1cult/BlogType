@@ -21,7 +21,7 @@ let renderContent = (data) => {
 
     return (
 
-      <ReactPlayer url={data.media} playing />
+      <ReactPlayer url={data.media} playing loop />
 
     )
 
