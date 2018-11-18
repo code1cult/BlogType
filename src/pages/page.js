@@ -26,7 +26,7 @@ let renderContent = (data) => {
     )
 
   }
-  // <video src={data.media} type="video/mp4" />
+ 
 
 
 }
