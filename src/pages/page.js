@@ -3,13 +3,14 @@ import { graphql } from 'gatsby'
 import Navigation from '../components/navigation'
 import Header from '../components/header'
 import Footer from '../components/footer'
+import Recommendations from '../components/recommendations'
 import ReactPlayer from 'react-player'
 
 
 
 let renderContent = (data) => {
 
-  if (data.media_type == 'img') {
+  if (data.media_type === 'img') {
 
     return (
       <img src={data.media} alt={data.title}></img>
@@ -17,7 +18,7 @@ let renderContent = (data) => {
 
   }
 
-  if (data.media_type == 'video') {
+  if (data.media_type === 'video') {
 
     return (
 
@@ -26,18 +27,31 @@ let renderContent = (data) => {
     )
 
   }
- 
+
 
 
 }
 
-const IndexPage = ({ data }) => {
-  let blog = data.allStrapiPost.edges[0].node
+const IndexPage = ({ data, pageContext }) => {
+
+  let id = pageContext.productId
+  let arrays = data.allStrapiPost.edges
+
+  let number = 0;
+
+
+  arrays.forEach(function (item, i) {
+    if (item.node.id === id) {
+      number = i
+    }
+  });
+
+  let blog = arrays[number].node
 
   return (
     <div>
       <Navigation />
-      <Header title={blog && blog.title} image={'https://ichef.bbci.co.uk/news/660/cpsprodpb/EFCB/production/_104378316_a9b18b4c-5092-4089-b16a-a6228bac4c85.jpg'} />
+      <Header title={blog.title} />
       <article>
         <div className="container">
           <div className="row">
@@ -48,7 +62,9 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
       </article>
+      <div className="line-article"></div>
 
+      <Recommendations arrays={arrays}/>
       <Footer />
     </div>
 
@@ -58,22 +74,38 @@ const IndexPage = ({ data }) => {
 }
 export default IndexPage
 
+// export const query = graphql`
+// query($productId: String){
+//   allStrapiPost (filter:{
+//     id:{eq: $productId}
+//   }){
+//     edges {
+//       node  {
+//         id
+//         title
+//         media
+//         media_type
+//         content
+//         }
+//       }
+//     }
+//   }
+
+// `
+
 export const query = graphql`
-query($productId: String){
-  allStrapiPost (filter:{
-    id:{eq: $productId}
-  }){
-    edges {
-      node  {
-        id
-        title
-        media
-        media_type
-        content
-        }
-      }
-    }
-  }
+query {
+  allStrapiPost{
+   edges {
+     node {
+      id
+      title
+      media
+      media_type
+      content
 
+     }
+   }
+ }
+}
 `
-

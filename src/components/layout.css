@@ -630,3 +630,16 @@ padding-right: 10px;
 li.last-li{
   margin-bottom: 0px;
 }
+
+.recommendations-title{
+  text-transform: capitalize;
+  font-size: 48px;
+  margin-bottom: 40px;
+  margin: auto;
+}
+.line-article{
+  margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid;
+}
