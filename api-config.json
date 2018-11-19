@@ -1,0 +1,21 @@
+{
+  "google-analytics": "trackingId",
+  "yandex-metrika":"trackingId",
+  "adsense":"ca-pub-2548259343015828",
+  "adnow":"id",
+  "propellerads":"id",
+  "clickadu":"id",
+  "revenuehits":"id",
+  "exoclick":"id",
+  "source-strapi":{
+    "apiURL":"apiURL",
+    "contentTypes": [
+      "TYPE"
+    ],
+    "allStrapi":"allStrapi[TYPE]"
+  },
+  "title":"About Science",
+  "description":"This community is a place to share and discuss new scientific research...",
+  "url_repository":"bitbucket..."
+
+}

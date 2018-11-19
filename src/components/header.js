@@ -12,7 +12,7 @@ const Header = (data) => {
                 <title>{data.title}</title>
                 {/* <meta name="description" content={data.description} /> */}
             </Helmet>
-            <header className="masthead" style={{ backgroundImage: `url(${data.image})` }}>
+            <header className="masthead">
                 <div className="overlay"></div>
                 <div className="container">
                     <div className="row">

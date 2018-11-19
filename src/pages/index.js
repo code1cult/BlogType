@@ -20,9 +20,7 @@ let renderPosts = (array) => {
 
   return array.map((value, i) => {
    let title = convertToSlug(value.node.title)
-   
-
-    debugger
+  
 
     return (
       <div>
