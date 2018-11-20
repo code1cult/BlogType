@@ -216,7 +216,7 @@ header.masthead .site-heading {
 
 header.masthead .page-heading h1,
 header.masthead .site-heading h1 {
-  font-size: 48px;
+  font-size: 32px;
   margin-top: 0;
   text-transform: uppercase;
 }
@@ -234,7 +234,7 @@ header.masthead .site-heading .subheading {
 @media only screen and (min-width: 768px) {
   header.masthead .page-heading h1,
   header.masthead .site-heading h1 {
-    font-size: 48px;
+    font-size: 32px;
   }
 }
 
@@ -286,7 +286,7 @@ header.masthead .post-heading .meta a {
 }
 
 .post-preview > a > .post-title {
-  font-size: 30px;
+  font-size: 24px;
   margin-top: 30px;
   margin-bottom: 10px;
 }
@@ -315,7 +315,7 @@ header.masthead .post-heading .meta a {
 
 @media only screen and (min-width: 768px) {
   .post-preview > a > .post-title {
-    font-size: 36px;
+    font-size: 24px;
   }
 }
 
