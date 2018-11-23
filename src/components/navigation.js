@@ -19,7 +19,10 @@ const Navigation = (data) => {
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item last-li">
+            
               <Link className="nav-link" to="/">Home</Link>
+              <Link className="nav-link" to="/about">About</Link>
+              <Link className="nav-link" to="/faq">FAQ</Link>
             </li>
 
           </ul>
