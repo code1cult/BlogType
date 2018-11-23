@@ -21,7 +21,8 @@ const About = () => {
           <div className="row">
             <div className="col-lg-8 col-md-10 mx-auto">
 
-            <p>Description</p>
+            <p>Welcome to our page dedicated to the topic of {}, 
+            I hope you will be with us here, the page loads instantly and it's a pleasure to read and watch content.</p>
               
             </div>
           </div>
