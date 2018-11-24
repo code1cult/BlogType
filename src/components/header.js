@@ -8,9 +8,8 @@ const Header = (data) => {
     return (
         <div>
             <Helmet>
-
                 <title>{data.title}</title>
-                {/* <meta name="description" content={data.description} /> */}
+                <meta name="description" content={data.description} />
             </Helmet>
             <header className="masthead">
                 <div className="overlay"></div>

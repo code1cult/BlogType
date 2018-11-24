@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Link } from 'gatsby'
-
+import config from '../index.json'
 
 let convertToSlug = (Text) => {
     return Text
@@ -77,8 +77,8 @@ export default Recommendations
 
 
 export const query = graphql`
-query {
-  allStrapiPost{
+query {`+ 
+config.sourceStrapi.allStrapi + `{
    edges {
      node {
       id
@@ -92,4 +92,3 @@ query {
  }
 }
 `
-

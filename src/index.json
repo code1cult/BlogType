@@ -1,0 +1,22 @@
+{
+    "_id": "5bf5a8129fb9ae3241f57a31",
+    "googleAnalytics": "trackingId",
+    "yandexMetrika": "trackingId",
+    "adsense": "id",
+    "adnow": "id",
+    "propellerads": "id",
+    "clickadu": "id",
+    "revenuehits": "id",
+    "exoclick": "id",
+    "sourceStrapi": {
+        "allStrapi": "allStrapiPost",
+        "contentTypes": [
+            "Post"
+        ],
+        "apiURL": "http://54.165.216.162:1337"
+    },
+    "title": "About Science",
+    "description": "This community is a place to share and discuss new scientific research...",
+    "urlRepository": "ХУЙ",
+    "__v": 0
+}
