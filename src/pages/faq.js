@@ -2,20 +2,17 @@ import React from 'react'
 import Navigation from '../components/navigation'
 import Header from '../components/header'
 import Footer from '../components/footer'
-import config from '../index.json'
+import config from '../config'
 
 
 
 
 
 const FAQ = () => {
-
-
-
   return (
     <div>
       <Navigation />
-      <Header title={'FAQ'} description={config.description} />
+      <Header title={'FAQ'} description={config.get('description')} />
       <article>
         <div className="container">
           <div className="row">
@@ -24,7 +21,7 @@ const FAQ = () => {
               <p>&nbsp;<br />
                 <strong>What is this blog about and why do I need to read it?</strong><br />
                 <br />
-                This blog is about {config.title} and here is unique content that collects thousands of likes every day.
+                This blog is about {config.get('title')} and here is unique content that collects thousands of likes every day.
                         <br />
               </p>
 
@@ -39,7 +36,7 @@ const FAQ = () => {
               <p>&nbsp;<br />
                 <strong>Why should I visit this site every day and add to bookmarks?</strong><br />
                 <br />
-                Everything comes from the preceding paragraphs, very simply because it is a very focused blog that will appeal to anyone who is interested in {config.title}
+                Everything comes from the preceding paragraphs, very simply because it is a very focused blog that will appeal to anyone who is interested in {config.get('title')}
                 <br />
               </p>
 

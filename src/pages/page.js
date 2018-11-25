@@ -5,7 +5,7 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import Recommendations from '../components/recommendations'
 import ReactPlayer from 'react-player'
-import config from '../index.json'
+import config from '../config'
 
 
 let renderContent = (data) => {
@@ -34,8 +34,8 @@ let renderContent = (data) => {
 
 const IndexPage = ({ data, pageContext }) => {
 
-  let id = pageContext.productId
-  let arrays = data[config.sourceStrapi.allStrapi].edges
+  let id = pageContext.productId;
+  let arrays = data[config.get("sourceStrapi:allStrapi")].edges;
 
   let number = 0;
 
@@ -46,12 +46,12 @@ const IndexPage = ({ data, pageContext }) => {
     }
   });
 
-  let blog = arrays[number].node
+  let blog = arrays[number].node;
 
   return (
     <div>
       <Navigation />
-      <Header title={blog.title} description={config.description} />
+      <Header title={blog.title} description={config.get('description')} />
       <article>
         <div className="container">
           <div className="row">
@@ -75,8 +75,8 @@ const IndexPage = ({ data, pageContext }) => {
 export default IndexPage
 
 export const query = graphql`
-query {`+ 
-config.sourceStrapi.allStrapi + `{
+query {`+
+    config.get("sourceStrapi:allStrapi") + `{
    edges {
      node {
       id

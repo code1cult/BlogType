@@ -20,6 +20,7 @@
     "gatsby-transformer-remark": "^2.1.11",
     "gatsby-transformer-sharp": "^2.1.4",
     "jsonfile": "^5.0.0",
+    "nconf": "^0.10.0",
     "node-cron": "^2.0.3",
     "react": "^16.5.1",
     "react-adsense": "0.0.6",

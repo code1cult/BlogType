@@ -1,7 +1,7 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-import { Link } from 'gatsby'
-import config from '../index.json'
+import {graphql} from 'gatsby'
+import {Link} from 'gatsby'
+import config from '../config'
 
 let convertToSlug = (Text) => {
     return Text
@@ -39,46 +39,43 @@ let renderPosts = (array) => {
                         </h2>
                     </Link>
                 </div>
-                <hr />
+                <hr/>
             </div>
         )
     })
 
 
-
 }
 
-const Recommendations = ({ arrays }) => {
+const Recommendations = ({arrays}) => {
     let newArray = getRandom(arrays, 6)
 
     return (
         <div className="container">
-        <div className="row">
-          <div className="col-lg-8 col-md-10 mx-auto">
-          <div className="recommendations-title">
-          Recommendations for You:
-          </div>
-              
-            {renderPosts(newArray)}
+            <div className="row">
+                <div className="col-lg-8 col-md-10 mx-auto">
+                    <div className="recommendations-title">
+                        Recommendations for You:
+                    </div>
+
+                    {renderPosts(newArray)}
 
 
-            <div className="clearfix">
+                    <div className="clearfix">
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     )
-    
-    
-  
+
 
 }
 export default Recommendations
 
 
 export const query = graphql`
-query {`+ 
-config.sourceStrapi.allStrapi + `{
+            query {` +
+    config.get('sourceStrapi:allStrapi') + `{
    edges {
      node {
       id

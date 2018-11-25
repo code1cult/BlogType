@@ -1,10 +1,10 @@
-import config from './scr/index.json'
+import config from './src/config'
 const path = require(`path`);
 const axios = require('axios');
 const cron = require('node-cron');
 const id = require('./src/id.json');
 const jsonfile = require('jsonfile');
-const file = './src/index.json'
+const file = './src/config/config.json';
 
 
 exports.sourceNodes = async ({ boundActionCreators }) => {
@@ -57,7 +57,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   }
   return new Promise((resolve, reject) => {
     graphql(`query {`+
-    config.sourceStrapi`{
+        config.get("sourceStrapi")`{
        edges {
          node {
            id
@@ -70,7 +70,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     `
     ).then(result => {
       console.log(result)
-      result.data[config.sourceStrapi.allStrapi].edges.forEach(({ node }) => {
+      result.data[config.get("sourceStrapi:allStrapi")].edges.forEach(({ node }) => {
         console.log(`/${convertToSlug(node.title)}`)
         createPage({
           path: `/${convertToSlug(node.title)}`,
