@@ -1,4 +1,4 @@
-import config from './src/config'
+const config = require('./src/config/config.json')
 const path = require(`path`);
 const axios = require('axios');
 const cron = require('node-cron');
@@ -55,9 +55,14 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       .replace(/[^\w-]+/g, '')
       ;
   }
+
+  console.log('exports.createPages')
+  console.log(config.sourceStrapi.allStrapi)
+
+
   return new Promise((resolve, reject) => {
     graphql(`query {`+
-        config.get("sourceStrapi")`{
+    config.sourceStrapi.allStrapi`{
        edges {
          node {
            id
@@ -70,7 +75,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     `
     ).then(result => {
       console.log(result)
-      result.data[config.get("sourceStrapi:allStrapi")].edges.forEach(({ node }) => {
+      result.data[config.sourceStrapi.allStrapi].edges.forEach(({ node }) => {
         console.log(`/${convertToSlug(node.title)}`)
         createPage({
           path: `/${convertToSlug(node.title)}`,

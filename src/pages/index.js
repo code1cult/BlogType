@@ -4,7 +4,7 @@ import {graphql} from 'gatsby'
 import Navigation from '../components/navigation'
 import Header from '../components/header'
 import Footer from '../components/footer'
-import config from '../config'
+import config from '../config/config.json'
 
 let convertToSlug = (Text) => {
     return Text
@@ -43,13 +43,13 @@ const IndexPage = ({data}) => {
     return (
         <div>
             <Navigation/>
-            <Header title={config.get('title')} description={config.get('description')}/>
+            <Header title={config.title} description={config.description}/>
 
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8 col-md-10 mx-auto">
 
-                        {renderPosts(data[config.get('sourceStrapi:allStrapi')].edges)}
+                        {renderPosts(data[config.sourceStrapi.allStrapi].edges)}
 
 
                         <div className="clearfix">
@@ -69,7 +69,7 @@ export default IndexPage
 
 export const query = graphql`
             query {` +
-    config.get('sourceStrapi:allStrapi') + `{
+            config.sourceStrapi.allStrapi + `{
    edges {
      node {
       id
