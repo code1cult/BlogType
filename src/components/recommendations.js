@@ -29,7 +29,7 @@ let renderPosts = (array) => {
 
 
         return (
-            <div>
+            <div key={i}>
                 <div className="post-preview">
                     <Link to={'/' + title}>
                         <h2 className="post-title">

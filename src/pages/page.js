@@ -35,8 +35,12 @@ let renderContent = (data) => {
 const IndexPage = ({ data, pageContext }) => {
 
   let id = pageContext.productId;
-  let arrays = data[config.sourceStrapi.allStrapi].edges;
+  let arrays = data[config.sourceStrapi.allStrapi].edges.filter((elems) => { 
+    
+    return elems.node.type === 'post'
+  });;
 
+  
   let number = 0;
 
 
@@ -84,6 +88,7 @@ query {
       media
       media_type
       content
+      type
      }
    }
  }

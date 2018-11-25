@@ -1,6 +1,6 @@
 import React from 'react'
-import {Link} from 'gatsby'
-import {graphql} from 'gatsby'
+import { Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Navigation from '../components/navigation'
 import Header from '../components/header'
 import Footer from '../components/footer'
@@ -22,7 +22,7 @@ let renderPosts = (array) => {
 
 
         return (
-            <div>
+            <div key={i}>
                 <div className="post-preview">
                     <Link to={'/' + title}>
                         <h2 className="post-title">
@@ -30,7 +30,7 @@ let renderPosts = (array) => {
                         </h2>
                     </Link>
                 </div>
-                <hr/>
+                <hr />
             </div>
         )
     })
@@ -38,18 +38,20 @@ let renderPosts = (array) => {
 
 }
 
-const IndexPage = ({data}) => {
+const IndexPage = ({ data }) => {
 
+
+    let dataIndex = data[config.sourceStrapi.allStrapi].edges.filter((elems) => { return elems.node.type === 'post'});
     return (
         <div>
-            <Navigation/>
-            <Header title={config.title} description={config.description}/>
+            <Navigation />
+            <Header title={config.title} description={config.description} />
 
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8 col-md-10 mx-auto">
 
-                        {renderPosts(data[config.sourceStrapi.allStrapi].edges)}
+                        {renderPosts(dataIndex)}
 
 
                         <div className="clearfix">
@@ -57,7 +59,7 @@ const IndexPage = ({data}) => {
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
 
 
@@ -69,7 +71,7 @@ export default IndexPage
 
 export const query = graphql`
 query {
-    allStrapiPost(filter: {type: {eq:"post"}}){
+    allStrapiPost{
      edges {
        node {
         id

@@ -9,36 +9,23 @@ const file = './src/config/config.json';
 exports.sourceNodes = async ({ boundActionCreators }) => {
   const { createNode } = boundActionCreators;
 
-
-console.log(id.id)
-
-
   let getReq  = async () => {
-    //const fetchRandomUser = () => axios.get('http://54.174.47.171:9000/api/resources/'+id.id);
-    const fetchRandomUser = () => axios.get('http://54.174.47.171:9000/api/resources/');
+    const fetchRandomUser = () => axios.get('http://54.174.47.171:9000/api/resources/'+id.id);
     const res = await fetchRandomUser();
     console.log('sourceNodes')
-    console.log(res.data[0])
+    console.log(res.data)
 
-    let indexData = res.data[0]
+    let indexData = res.data
     jsonfile.writeFile(file, indexData, function (err) {
       if (err) console.error(err)
     })
   }
 
-  // cron.schedule('* */23 * * *', () => {
-  //   console.log('running every 23 hour');
-  //   getReq ()
+  cron.schedule('* */23 * * *', () => {
+    console.log('running every 23 hour');
+    getReq ()
 
-  // });
-
-  cron.schedule('*/1 * * * *', () => {
-    console.log('running a task every two minutes');
-    //getReq ()
   });
-
-
-
 
 }
 
@@ -62,7 +49,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
 
   return new Promise((resolve, reject) => {
-    let type = "post"
     graphql(`query {`+
     config.sourceStrapi.allStrapi+`{
        edges {
@@ -88,6 +74,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         })
 
       })
+
       resolve()
     })
   }).catch(error => {
