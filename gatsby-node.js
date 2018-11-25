@@ -1,8 +1,7 @@
-
 const path = require(`path`);
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+  const { createPage } = boundActionCreators;
 
   let convertToSlug = (Text) => {
     return Text

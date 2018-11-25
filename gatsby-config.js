@@ -1,3 +1,8 @@
+require("dotenv").config({
+    path: `.env.staging`,
+})
+
+
 module.exports = {
   // siteMetadata: {
   //   title: `How to Lose Weight`,
@@ -55,7 +60,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-strapi',
       options: {
-        apiURL: 'http://54.165.216.162:1337',
+        apiURL: process.env.GA_TRACKING_ID,
         contentTypes: [
           'Post'
         ]
