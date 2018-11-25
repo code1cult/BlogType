@@ -50,6 +50,8 @@ const IndexPage = ({ data, pageContext }) => {
     }
   }); 
 
+  let blog = arrays[number].node;
+
   return (
     <div>
       <Navigation />
