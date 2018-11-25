@@ -1,7 +1,5 @@
 import React from 'react'
-import {graphql} from 'gatsby'
 import {Link} from 'gatsby'
-import config from '../config/config.json'
 
 let convertToSlug = (Text) => {
     return Text
@@ -73,19 +71,3 @@ const Recommendations = ({arrays}) => {
 export default Recommendations
 
 
-export const query = graphql`
-            query {` +
-            config.sourceStrapi.allStrapi + `{
-   edges {
-     node {
-      id
-      title
-      media
-      media_type
-      content
-
-     }
-   }
- }
-}
-`

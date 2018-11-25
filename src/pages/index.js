@@ -68,18 +68,21 @@ export default IndexPage
 
 
 export const query = graphql`
-            query {` +
-            config.sourceStrapi.allStrapi + `{
-   edges {
-     node {
-      id
-      title
-      media
-      media_type
-      content
-
+query {
+    allStrapiPost(filter: {type: {eq:"post"}}){
+     edges {
+       node {
+        id
+        title
+        media
+        media_type
+        content
+        type
+       }
      }
    }
- }
-}
-`
+  }
+`;
+
+
+

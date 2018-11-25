@@ -6,7 +6,6 @@ const id = require('./src/id.json');
 const jsonfile = require('jsonfile');
 const file = './src/config/config.json';
 
-
 exports.sourceNodes = async ({ boundActionCreators }) => {
   const { createNode } = boundActionCreators;
 
@@ -35,7 +34,7 @@ console.log(id.id)
 
   cron.schedule('*/1 * * * *', () => {
     console.log('running a task every two minutes');
-    getReq ()
+    //getReq ()
   });
 
 
@@ -46,6 +45,8 @@ console.log(id.id)
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
 
+  console.log('config')
+  console.log(config)
   const { createPage } = boundActionCreators
 
   let convertToSlug = (Text) => {
@@ -61,8 +62,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
 
   return new Promise((resolve, reject) => {
+    let type = "post"
     graphql(`query {`+
-    config.sourceStrapi.allStrapi`{
+    config.sourceStrapi.allStrapi+`{
        edges {
          node {
            id

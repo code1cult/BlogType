@@ -75,8 +75,8 @@ const IndexPage = ({ data, pageContext }) => {
 export default IndexPage
 
 export const query = graphql`
-query {`+
-config.sourceStrapi.allStrapi + `{
+query {
+  allStrapiPost{
    edges {
      node {
       id
@@ -84,7 +84,6 @@ config.sourceStrapi.allStrapi + `{
       media
       media_type
       content
-
      }
    }
  }
