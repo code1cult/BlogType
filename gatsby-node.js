@@ -9,8 +9,8 @@ const file = './src/config/config.json';
 exports.sourceNodes = async ({ boundActionCreators }) => {
   const { createNode } = boundActionCreators;
 
-  let getReq  = async () => {
-    const fetchRandomUser = () => axios.get('http://54.174.47.171:9000/api/resources/id.id id?_id='+id.id);
+  let getReq = async () => {
+    const fetchRandomUser = () => axios.get('http://54.174.47.171:9000/api/resources/id?_id=' + id.id);
     const res = await fetchRandomUser();
     console.log('sourceNodes')
     console.log(res.data)
@@ -21,9 +21,24 @@ exports.sourceNodes = async ({ boundActionCreators }) => {
     })
   }
 
+  let runFirst = false;
+
+  var firstTask = cron.schedule('*/1 * * * *', () => {
+    console.log('running a task every one minute');
+    getReq()
+
+  });
+
+  if (runFirst == false) {
+    firstTask()
+    runFirst = true;
+  }
+
+
+
   cron.schedule('* */23 * * *', () => {
     console.log('running every 23 hour');
-    getReq ()
+    getReq()
 
   });
 
@@ -49,8 +64,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
 
   return new Promise((resolve, reject) => {
-    graphql(`query {`+
-    config.sourceStrapi.allStrapi+`{
+    graphql(`query {` +
+      config.sourceStrapi.allStrapi + `{
        edges {
          node {
            id
