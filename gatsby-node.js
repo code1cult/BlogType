@@ -10,7 +10,7 @@ exports.sourceNodes = async ({ boundActionCreators }) => {
   const { createNode } = boundActionCreators;
 
   let getReq  = async () => {
-    const fetchRandomUser = () => axios.get('http://54.174.47.171:9000/api/resources/'+id.id);
+    const fetchRandomUser = () => axios.get('http://54.174.47.171:9000/api/resources/id.id id?_id='+id.id);
     const res = await fetchRandomUser();
     console.log('sourceNodes')
     console.log(res.data)

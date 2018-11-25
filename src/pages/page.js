@@ -48,9 +48,7 @@ const IndexPage = ({ data, pageContext }) => {
     if (item.node.id === id) {
       number = i
     }
-  });
-
-  let blog = arrays[number].node;
+  }); 
 
   return (
     <div>
